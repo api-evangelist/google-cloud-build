@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cloud.google.com/schemas/cloudbuild/build.json",
+  "title": "Google Cloud Build Build",
+  "description": "Schema for a Cloud Build build resource, representing a CI/CD build execution on Google Cloud infrastructure.",
+  "type": "object",
+  "required": ["steps"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the build"
+    },
+    "projectId": {
+      "type": "string",
+      "description": "ID of the project"
+    },
+    "status": {
+      "type": "string",
+      "description": "Status of the build",
+      "enum": ["STATUS_UNKNOWN", "PENDING", "QUEUED", "WORKING", "SUCCESS", "FAILURE", "INTERNAL_ERROR", "TIMEOUT", "CANCELLED", "EXPIRED"]
+    },
+    "source": {
+      "$ref": "#/$defs/Source",
+      "description": "The location of the source files to build"
+    },
+    "steps": {
+      "type": "array",
+      "description": "The operations to be performed on the workspace",
+      "items": {
+        "$ref": "#/$defs/BuildStep"
+      },
+      "minItems": 1
+    },
+    "images": {
+      "type": "array",
+      "description": "List of images to be pushed upon successful build completion",
+      "items": {
+        "type": "string"
+      }
+    },
+    "timeout": {
+      "type": "string",
+      "description": "Amount of time that this build should be allowed to run (e.g. 600s)",
+      "pattern": "^[0-9]+s$"
+    },
+    "substitutions": {
+      "type": "object",
+      "description": "Substitution variables for the build",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags for organizing builds",
+      "items": {
+        "type": "string"
+      }
+    },
+    "logUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to logs for this build in Cloud Console"
+    },
+    "createTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time at which the build was created"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time at which execution of the build was started"
+    },
+    "finishTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time at which execution of the build was finished"
+    }
+  },
+  "$defs": {
+    "Source": {
+      "type": "object",
+      "description": "Location of the source in a supported storage service",
+      "properties": {
+        "storageSource": {
+          "type": "object",
+          "description": "Source from Cloud Storage",
+          "properties": {
+            "bucket": {
+              "type": "string",
+              "description": "Cloud Storage bucket containing the source"
+            },
+            "object": {
+              "type": "string",
+              "description": "Cloud Storage object containing the source"
+            },
+            "generation": {
+              "type": "string",
+              "description": "Cloud Storage generation for the object"
+            }
+          }
+        },
+        "repoSource": {
+          "type": "object",
+          "description": "Source from a Cloud Source Repository",
+          "properties": {
+            "projectId": {
+              "type": "string"
+            },
+            "repoName": {
+              "type": "string"
+            },
+            "branchName": {
+              "type": "string"
+            },
+            "tagName": {
+              "type": "string"
+            },
+            "commitSha": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "BuildStep": {
+      "type": "object",
+      "description": "A step in the build pipeline",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the container image for this build step"
+        },
+        "args": {
+          "type": "array",
+          "description": "Command-line arguments to the step's container",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dir": {
+          "type": "string",
+          "description": "Working directory for the step"
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the build step"
+        },
+        "waitFor": {
+          "type": "array",
+          "description": "IDs of steps that this step depends on",
+          "items": {
+            "type": "string"
+          }
+        },
+        "entrypoint": {
+          "type": "string",
+          "description": "Entrypoint to use for the step's container"
+        },
+        "env": {
+          "type": "array",
+          "description": "Environment variables for the step",
+          "items": {
+            "type": "string"
+          }
+        },
+        "timeout": {
+          "type": "string",
+          "description": "Timeout for this build step"
+        }
+      }
+    }
+  }
+}

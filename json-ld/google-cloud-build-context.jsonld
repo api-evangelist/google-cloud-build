@@ -1,0 +1,85 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "cb": "https://cloud.google.com/build/ns/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Build": {
+      "@id": "cb:Build",
+      "@context": {
+        "id": "cb:buildId",
+        "projectId": "cb:projectId",
+        "status": "cb:buildStatus",
+        "source": "cb:source",
+        "steps": "cb:steps",
+        "images": "cb:images",
+        "timeout": "cb:timeout",
+        "substitutions": "cb:substitutions",
+        "tags": "cb:tags",
+        "logUrl": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "createTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "startTime": {
+          "@id": "cb:startTime",
+          "@type": "xsd:dateTime"
+        },
+        "finishTime": {
+          "@id": "cb:finishTime",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "BuildStep": {
+      "@id": "cb:BuildStep",
+      "@context": {
+        "name": "cb:stepImage",
+        "args": "cb:args",
+        "dir": "cb:workingDir",
+        "id": "cb:stepId",
+        "waitFor": "cb:waitFor",
+        "entrypoint": "cb:entrypoint",
+        "env": "cb:env"
+      }
+    },
+
+    "BuildTrigger": {
+      "@id": "cb:BuildTrigger",
+      "@context": {
+        "id": "cb:triggerId",
+        "name": "schema:name",
+        "description": "schema:description",
+        "disabled": "cb:disabled",
+        "filename": "cb:filename",
+        "createTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "WorkerPool": {
+      "@id": "cb:WorkerPool",
+      "@context": {
+        "name": "cb:workerPoolName",
+        "displayName": "schema:name",
+        "state": "cb:workerPoolState",
+        "createTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updateTime": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}
