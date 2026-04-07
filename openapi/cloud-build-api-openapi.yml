@@ -30,7 +30,7 @@ paths:
   /projects/{projectId}/builds:
     get:
       operationId: listBuilds
-      summary: List builds
+      summary: Google Cloud Build List builds
       description: Lists previously requested builds for a project.
       tags:
         - Builds
@@ -52,7 +52,7 @@ paths:
                 $ref: '#/components/schemas/ListBuildsResponse'
     post:
       operationId: createBuild
-      summary: Create a build
+      summary: Google Cloud Build Create a build
       description: Starts a build with the specified configuration.
       tags:
         - Builds
@@ -74,7 +74,7 @@ paths:
   /projects/{projectId}/builds/{buildId}:
     get:
       operationId: getBuild
-      summary: Get a build
+      summary: Google Cloud Build Get a build
       description: Returns information about a previously requested build.
       tags:
         - Builds
@@ -91,7 +91,7 @@ paths:
   /projects/{projectId}/builds/{buildId}:cancel:
     post:
       operationId: cancelBuild
-      summary: Cancel a build
+      summary: Google Cloud Build Cancel a build
       description: Cancels a build in progress.
       tags:
         - Builds
@@ -108,7 +108,7 @@ paths:
   /projects/{projectId}/triggers:
     get:
       operationId: listTriggers
-      summary: List build triggers
+      summary: Google Cloud Build List build triggers
       description: Lists existing build triggers for a project.
       tags:
         - Triggers
@@ -125,7 +125,7 @@ paths:
                 $ref: '#/components/schemas/ListTriggersResponse'
     post:
       operationId: createTrigger
-      summary: Create a build trigger
+      summary: Google Cloud Build Create a build trigger
       description: Creates a new build trigger.
       tags:
         - Triggers
@@ -147,7 +147,7 @@ paths:
   /projects/{projectId}/triggers/{triggerId}:
     get:
       operationId: getTrigger
-      summary: Get a build trigger
+      summary: Google Cloud Build Get a build trigger
       description: Returns information about a build trigger.
       tags:
         - Triggers
@@ -163,7 +163,7 @@ paths:
                 $ref: '#/components/schemas/BuildTrigger'
     patch:
       operationId: updateTrigger
-      summary: Update a build trigger
+      summary: Google Cloud Build Update a build trigger
       description: Updates a build trigger by its project ID and trigger ID.
       tags:
         - Triggers
@@ -185,7 +185,7 @@ paths:
                 $ref: '#/components/schemas/BuildTrigger'
     delete:
       operationId: deleteTrigger
-      summary: Delete a build trigger
+      summary: Google Cloud Build Delete a build trigger
       description: Deletes a build trigger by its project ID and trigger ID.
       tags:
         - Triggers
@@ -198,7 +198,7 @@ paths:
   /projects/{projectId}/locations/{location}/workerPools:
     get:
       operationId: listWorkerPools
-      summary: List worker pools
+      summary: Google Cloud Build List worker pools
       description: Lists worker pools for a given project.
       tags:
         - WorkerPools
@@ -216,7 +216,7 @@ paths:
                 $ref: '#/components/schemas/ListWorkerPoolsResponse'
     post:
       operationId: createWorkerPool
-      summary: Create a worker pool
+      summary: Google Cloud Build Create a worker pool
       description: Creates a new worker pool.
       tags:
         - WorkerPools
