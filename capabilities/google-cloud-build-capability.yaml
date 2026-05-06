@@ -1,0 +1,388 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Build API
+  description: The Cloud Build API provides programmatic access to create, manage, and monitor builds on Google Cloud infrastructure.
+    It supports build triggers, worker pools, source repository connections, and build configuration management for CI/CD
+    workflows.
+  tags:
+  - Google
+  - Cloud
+  - Build
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-cloud-build
+    baseUri: https://cloudbuild.googleapis.com/v1
+    description: Google Cloud Build API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{GOOGLE_CLOUD_BUILD_TOKEN}}'
+    resources:
+    - name: projects-projectid-builds
+      path: /projects/{projectId}/builds
+      operations:
+      - name: listbuilds
+        method: GET
+        description: Google Cloud Build List builds
+        inputParameters:
+        - name: filter
+          in: query
+          type: string
+          description: The raw filter text to constrain the results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createbuild
+        method: POST
+        description: Google Cloud Build Create a build
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-builds-buildid
+      path: /projects/{projectId}/builds/{buildId}
+      operations:
+      - name: getbuild
+        method: GET
+        description: Google Cloud Build Get a build
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-builds-buildid-cancel
+      path: /projects/{projectId}/builds/{buildId}:cancel
+      operations:
+      - name: cancelbuild
+        method: POST
+        description: Google Cloud Build Cancel a build
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-triggers
+      path: /projects/{projectId}/triggers
+      operations:
+      - name: listtriggers
+        method: GET
+        description: Google Cloud Build List build triggers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createtrigger
+        method: POST
+        description: Google Cloud Build Create a build trigger
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-triggers-triggerid
+      path: /projects/{projectId}/triggers/{triggerId}
+      operations:
+      - name: gettrigger
+        method: GET
+        description: Google Cloud Build Get a build trigger
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatetrigger
+        method: PATCH
+        description: Google Cloud Build Update a build trigger
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletetrigger
+        method: DELETE
+        description: Google Cloud Build Delete a build trigger
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-locations-location-workerpool
+      path: /projects/{projectId}/locations/{location}/workerPools
+      operations:
+      - name: listworkerpools
+        method: GET
+        description: Google Cloud Build List worker pools
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createworkerpool
+        method: POST
+        description: Google Cloud Build Create a worker pool
+        inputParameters:
+        - name: workerPoolId
+          in: query
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-cloud-build-rest
+    description: REST adapter for Google Cloud Build API.
+    resources:
+    - path: /projects/{projectId}/builds
+      name: listbuilds
+      operations:
+      - method: GET
+        name: listbuilds
+        description: Google Cloud Build List builds
+        call: google-cloud-build.listbuilds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/builds
+      name: createbuild
+      operations:
+      - method: POST
+        name: createbuild
+        description: Google Cloud Build Create a build
+        call: google-cloud-build.createbuild
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/builds/{buildId}
+      name: getbuild
+      operations:
+      - method: GET
+        name: getbuild
+        description: Google Cloud Build Get a build
+        call: google-cloud-build.getbuild
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/builds/{buildId}:cancel
+      name: cancelbuild
+      operations:
+      - method: POST
+        name: cancelbuild
+        description: Google Cloud Build Cancel a build
+        call: google-cloud-build.cancelbuild
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/triggers
+      name: listtriggers
+      operations:
+      - method: GET
+        name: listtriggers
+        description: Google Cloud Build List build triggers
+        call: google-cloud-build.listtriggers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/triggers
+      name: createtrigger
+      operations:
+      - method: POST
+        name: createtrigger
+        description: Google Cloud Build Create a build trigger
+        call: google-cloud-build.createtrigger
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/triggers/{triggerId}
+      name: gettrigger
+      operations:
+      - method: GET
+        name: gettrigger
+        description: Google Cloud Build Get a build trigger
+        call: google-cloud-build.gettrigger
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/triggers/{triggerId}
+      name: updatetrigger
+      operations:
+      - method: PATCH
+        name: updatetrigger
+        description: Google Cloud Build Update a build trigger
+        call: google-cloud-build.updatetrigger
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/triggers/{triggerId}
+      name: deletetrigger
+      operations:
+      - method: DELETE
+        name: deletetrigger
+        description: Google Cloud Build Delete a build trigger
+        call: google-cloud-build.deletetrigger
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/workerPools
+      name: listworkerpools
+      operations:
+      - method: GET
+        name: listworkerpools
+        description: Google Cloud Build List worker pools
+        call: google-cloud-build.listworkerpools
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/workerPools
+      name: createworkerpool
+      operations:
+      - method: POST
+        name: createworkerpool
+        description: Google Cloud Build Create a worker pool
+        call: google-cloud-build.createworkerpool
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-cloud-build-mcp
+    transport: http
+    description: MCP adapter for Google Cloud Build API for AI agent use.
+    tools:
+    - name: listbuilds
+      description: Google Cloud Build List builds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-build.listbuilds
+      with:
+        filter: tools.filter
+      inputParameters:
+      - name: filter
+        type: string
+        description: The raw filter text to constrain the results
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createbuild
+      description: Google Cloud Build Create a build
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-build.createbuild
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getbuild
+      description: Google Cloud Build Get a build
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-build.getbuild
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cancelbuild
+      description: Google Cloud Build Cancel a build
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-build.cancelbuild
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listtriggers
+      description: Google Cloud Build List build triggers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-build.listtriggers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createtrigger
+      description: Google Cloud Build Create a build trigger
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-build.createtrigger
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gettrigger
+      description: Google Cloud Build Get a build trigger
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-build.gettrigger
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatetrigger
+      description: Google Cloud Build Update a build trigger
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-build.updatetrigger
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletetrigger
+      description: Google Cloud Build Delete a build trigger
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: google-cloud-build.deletetrigger
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listworkerpools
+      description: Google Cloud Build List worker pools
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-build.listworkerpools
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createworkerpool
+      description: Google Cloud Build Create a worker pool
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-build.createworkerpool
+      with:
+        workerPoolId: tools.workerPoolId
+      inputParameters:
+      - name: workerPoolId
+        type: string
+        description: workerPoolId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_BUILD_TOKEN: GOOGLE_CLOUD_BUILD_TOKEN
