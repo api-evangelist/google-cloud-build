@@ -49,7 +49,7 @@ apis:
 common:
   - type: Portal
     url: https://cloud.google.com/build
-  - type: Getting Started
+  - type: GettingStarted
     url: https://cloud.google.com/build/docs/quickstart-build
   - type: Documentation
     url: https://cloud.google.com/build/docs
@@ -57,19 +57,19 @@ common:
     url: https://cloud.google.com/build/docs/api/reference/rest#authentication
   - type: Pricing
     url: https://cloud.google.com/build/pricing
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://cloud.google.com/terms
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://policies.google.com/privacy
   - type: Console
     url: https://console.cloud.google.com/cloud-build
   - type: CLI
     url: https://cloud.google.com/sdk/gcloud/reference/builds
-  - type: Status
+  - type: StatusPage
     url: https://status.cloud.google.com
   - type: Support
     url: https://cloud.google.com/build/docs/support
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/google-cloud-build-context.jsonld
   - type: Integrations
     url: https://cloud.google.com/marketplace
