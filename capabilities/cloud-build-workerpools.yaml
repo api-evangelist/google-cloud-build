@@ -1,0 +1,111 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Build API — WorkerPools
+  description: 'Google Cloud Build API — WorkerPools. 2 operations. Lead operation: Google Cloud Build List worker pools.
+    Self-contained Naftiko capability covering one Google Cloud Build business surface.'
+  tags:
+  - Google Cloud Build
+  - WorkerPools
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_BUILD_API_KEY: GOOGLE_CLOUD_BUILD_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-build-workerpools
+    baseUri: https://cloudbuild.googleapis.com/v1
+    description: Google Cloud Build API — WorkerPools business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-locations-location-workerPools
+      path: /projects/{projectId}/locations/{location}/workerPools
+      operations:
+      - name: listworkerpools
+        method: GET
+        description: Google Cloud Build List worker pools
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createworkerpool
+        method: POST
+        description: Google Cloud Build Create a worker pool
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workerPoolId
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_CLOUD_BUILD_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-build-workerpools-rest
+    port: 8080
+    description: REST adapter for Google Cloud Build API — WorkerPools. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/locations/{location}/workerpools
+      name: projects-projectid-locations-location-workerpools
+      description: REST surface for projects-projectId-locations-location-workerPools.
+      operations:
+      - method: GET
+        name: listworkerpools
+        description: Google Cloud Build List worker pools
+        call: cloud-build-workerpools.listworkerpools
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createworkerpool
+        description: Google Cloud Build Create a worker pool
+        call: cloud-build-workerpools.createworkerpool
+        with:
+          workerPoolId: rest.workerPoolId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-build-workerpools-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Cloud Build API — WorkerPools. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: google-cloud-build-list-worker
+      description: Google Cloud Build List worker pools
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-build-workerpools.listworkerpools
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-cloud-build-create-worker
+      description: Google Cloud Build Create a worker pool
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-build-workerpools.createworkerpool
+      with:
+        workerPoolId: tools.workerPoolId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
