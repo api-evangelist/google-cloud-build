@@ -5,7 +5,7 @@ description: >-
   build, test, and deploy software quickly across all languages and frameworks. It executes builds on Google Cloud
   infrastructure, supports building from source code repositories, creating container images, and deploying to various
   Google Cloud targets including GKE, Cloud Run, and App Engine.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-build/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -25,7 +25,7 @@ apis:
       can use the API to trigger builds from source code, manage build triggers that automatically start builds when
       source code changes, view build logs and results, manage worker pools for custom build environments, and configure
       build connections to source repositories.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://cloud.google.com/build/docs
     baseURL: https://cloudbuild.googleapis.com
     tags:
