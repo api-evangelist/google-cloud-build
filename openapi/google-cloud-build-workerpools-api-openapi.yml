@@ -1,0 +1,154 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Build Builds WorkerPools API
+  description: The Cloud Build API provides programmatic access to create, manage, and monitor builds on Google Cloud infrastructure. It supports build triggers, worker pools, source repository connections, and build configuration management for CI/CD workflows.
+  version: v1
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/build/docs/support
+  termsOfService: https://cloud.google.com/terms
+servers:
+- url: https://cloudbuild.googleapis.com/v1
+  description: Production Server
+security:
+- oauth2: []
+tags:
+- name: WorkerPools
+  description: Operations for managing worker pools
+paths:
+  /projects/{projectId}/locations/{location}/workerPools:
+    get:
+      operationId: listWorkerPools
+      summary: Google Cloud Build List worker pools
+      description: Lists worker pools for a given project.
+      tags:
+      - WorkerPools
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/location'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListWorkerPoolsResponse'
+    post:
+      operationId: createWorkerPool
+      summary: Google Cloud Build Create a worker pool
+      description: Creates a new worker pool.
+      tags:
+      - WorkerPools
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/location'
+      - name: workerPoolId
+        in: query
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkerPool'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+components:
+  parameters:
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    location:
+      name: location
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+    ListWorkerPoolsResponse:
+      type: object
+      properties:
+        workerPools:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkerPool'
+        nextPageToken:
+          type: string
+    WorkerPool:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        state:
+          type: string
+          enum:
+          - CREATING
+          - RUNNING
+          - DELETING
+          - DELETED
+        privatePoolV1Config:
+          type: object
+          properties:
+            workerConfig:
+              type: object
+              properties:
+                machineType:
+                  type: string
+                diskSizeGb:
+                  type: integer
+            networkConfig:
+              type: object
+              properties:
+                peeredNetwork:
+                  type: string
+                peeredNetworkIpRange:
+                  type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud
+externalDocs:
+  description: Cloud Build API Documentation
+  url: https://cloud.google.com/build/docs/api/reference/rest

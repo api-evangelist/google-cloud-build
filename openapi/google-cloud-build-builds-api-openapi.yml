@@ -1,0 +1,276 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Build Builds API
+  description: The Cloud Build API provides programmatic access to create, manage, and monitor builds on Google Cloud infrastructure. It supports build triggers, worker pools, source repository connections, and build configuration management for CI/CD workflows.
+  version: v1
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/build/docs/support
+  termsOfService: https://cloud.google.com/terms
+servers:
+- url: https://cloudbuild.googleapis.com/v1
+  description: Production Server
+security:
+- oauth2: []
+tags:
+- name: Builds
+  description: Operations for creating and managing builds
+paths:
+  /projects/{projectId}/builds:
+    get:
+      operationId: listBuilds
+      summary: Google Cloud Build List builds
+      description: Lists previously requested builds for a project.
+      tags:
+      - Builds
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      - name: filter
+        in: query
+        description: The raw filter text to constrain the results
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBuildsResponse'
+    post:
+      operationId: createBuild
+      summary: Google Cloud Build Create a build
+      description: Starts a build with the specified configuration.
+      tags:
+      - Builds
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Build'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{projectId}/builds/{buildId}:
+    get:
+      operationId: getBuild
+      summary: Google Cloud Build Get a build
+      description: Returns information about a previously requested build.
+      tags:
+      - Builds
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/buildId'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Build'
+  /projects/{projectId}/builds/{buildId}:cancel:
+    post:
+      operationId: cancelBuild
+      summary: Google Cloud Build Cancel a build
+      description: Cancels a build in progress.
+      tags:
+      - Builds
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/buildId'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Build'
+components:
+  schemas:
+    Build:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the build
+        projectId:
+          type: string
+        status:
+          type: string
+          enum:
+          - STATUS_UNKNOWN
+          - PENDING
+          - QUEUED
+          - WORKING
+          - SUCCESS
+          - FAILURE
+          - INTERNAL_ERROR
+          - TIMEOUT
+          - CANCELLED
+          - EXPIRED
+        source:
+          type: object
+          properties:
+            storageSource:
+              type: object
+              properties:
+                bucket:
+                  type: string
+                object:
+                  type: string
+                generation:
+                  type: string
+            repoSource:
+              type: object
+              properties:
+                projectId:
+                  type: string
+                repoName:
+                  type: string
+                branchName:
+                  type: string
+                tagName:
+                  type: string
+                commitSha:
+                  type: string
+        steps:
+          type: array
+          items:
+            $ref: '#/components/schemas/BuildStep'
+          description: The operations to be performed on the workspace
+        results:
+          type: object
+          properties:
+            images:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  digest:
+                    type: string
+            buildStepImages:
+              type: array
+              items:
+                type: string
+        createTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        finishTime:
+          type: string
+          format: date-time
+        timeout:
+          type: string
+          description: Amount of time that this build should be allowed to run
+        images:
+          type: array
+          items:
+            type: string
+          description: List of images to be pushed upon successful completion
+        logUrl:
+          type: string
+          description: URL to logs for this build in Cloud Console
+        substitutions:
+          type: object
+          additionalProperties:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
+    BuildStep:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the container image for this build step
+        args:
+          type: array
+          items:
+            type: string
+          description: Command-line arguments for the step's container
+        dir:
+          type: string
+          description: Working directory to use when running the step's container
+        id:
+          type: string
+          description: Unique identifier for the build step
+        waitFor:
+          type: array
+          items:
+            type: string
+          description: The IDs of steps that must complete before this step starts
+        entrypoint:
+          type: string
+          description: Entrypoint to use when running the step's container
+        env:
+          type: array
+          items:
+            type: string
+          description: Environment variables for the step
+        timeout:
+          type: string
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+    ListBuildsResponse:
+      type: object
+      properties:
+        builds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Build'
+        nextPageToken:
+          type: string
+  parameters:
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    buildId:
+      name: buildId
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud
+externalDocs:
+  description: Cloud Build API Documentation
+  url: https://cloud.google.com/build/docs/api/reference/rest
