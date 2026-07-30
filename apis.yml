@@ -5,7 +5,20 @@ description: >-
   build, test, and deploy software quickly across all languages and frameworks. It executes builds on Google Cloud
   infrastructure, supports building from source code repositories, creating container images, and deploying to various
   Google Cloud targets including GKE, Cloud Run, and App Engine.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-cloud-build.png
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-build/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -19,30 +32,57 @@ tags:
   - Continuous Integration
   - DevOps
 apis:
-  - name: Cloud Build API
-    description: >-
-      The Cloud Build API provides programmatic access to create, manage, and monitor builds on Google Cloud. Developers
-      can use the API to trigger builds from source code, manage build triggers that automatically start builds when
-      source code changes, view build logs and results, manage worker pools for custom build environments, and configure
-      build connections to source repositories.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://cloud.google.com/build/docs
-    baseURL: https://cloudbuild.googleapis.com
-    tags:
-      - Builds
-      - Source Repositories
-      - Triggers
-      - Worker Pools
-    properties:
-      - type: Documentation
-        url: https://cloud.google.com/build/docs/api/reference/rest
-      - type: OpenAPI
-        url: openapi/cloud-build-api-openapi.yml
-      - type: Authentication
-        url: https://cloud.google.com/build/docs/api/reference/rest#authentication
-      - type: JSONSchema
-        url: json-schema/google-cloud-build-build-schema.json
+- aid: google-cloud-build:google-cloud-build-builds-api
+  name: Google Cloud Build Builds API
+  description: Operations for creating and managing builds
+  humanURL: https://cloud.google.com/build/docs
+  baseURL: https://cloudbuild.googleapis.com
+  tags:
+  - Builds
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-build-builds-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/build/docs/api/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/build/docs/api/reference/rest#authentication
+  - type: JSONSchema
+    url: json-schema/google-cloud-build-build-schema.json
+- aid: google-cloud-build:google-cloud-build-triggers-api
+  name: Google Cloud Build Triggers API
+  description: Operations for managing build triggers
+  humanURL: https://cloud.google.com/build/docs
+  baseURL: https://cloudbuild.googleapis.com
+  tags:
+  - Triggers
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-build-triggers-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/build/docs/api/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/build/docs/api/reference/rest#authentication
+  - type: JSONSchema
+    url: json-schema/google-cloud-build-build-schema.json
+- aid: google-cloud-build:google-cloud-build-workerpools-api
+  name: Google Cloud Build WorkerPools API
+  description: Operations for managing worker pools
+  humanURL: https://cloud.google.com/build/docs
+  baseURL: https://cloudbuild.googleapis.com
+  tags:
+  - WorkerPools
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-build-workerpools-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/build/docs/api/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/build/docs/api/reference/rest#authentication
+  - type: JSONSchema
+    url: json-schema/google-cloud-build-build-schema.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/google-cloud-build/overview
   - type: AgenticAccess
     url: agentic-access/google-cloud-build-agentic-access.yml
   - type: VulnerabilityDisclosure
