@@ -1,0 +1,18 @@
+{
+  "provider": "google-cloud-build",
+  "sources": [
+    "google-cloud-build-builds-api-openapi.yml",
+    "google-cloud-build-triggers-api-openapi.yml",
+    "google-cloud-build-workerpools-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-cloud-build-builds-api-openapi.yml",
+    "google-cloud-build-triggers-api-openapi.yml",
+    "google-cloud-build-workerpools-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

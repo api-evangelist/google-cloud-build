@@ -1,0 +1,525 @@
+{
+  "info": {
+    "_postman_id": "3f052570-652b-4334-a745-d0d3a097c9d4",
+    "name": "Google Cloud Build Builds API",
+    "description": "The Cloud Build API provides programmatic access to create, manage, and monitor builds on Google Cloud infrastructure. It supports build triggers, worker pools, source repository connections, and build configuration management for CI/CD workflows.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:46:24.000Z",
+    "updatedAt": "2026-07-28T01:46:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3f052570-652b-4334-a745-d0d3a097c9d4"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "builds",
+              "item": [
+                {
+                  "name": "{buildId}",
+                  "item": [
+                    {
+                      "name": "Google Cloud Build Get a build",
+                      "id": "40f808d8-266f-4b97-96b5-386a93a1d306",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/builds/:buildId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "builds",
+                            ":buildId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c75ae81d-1483-4240-bd0b-812987096e16",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "d88afa1a-d775-4fa4-bd52-2f95e7b5728a",
+                              "key": "buildId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns information about a previously requested build."
+                      },
+                      "response": [
+                        {
+                          "id": "a76751e2-89ae-4806-86c0-411028c9636d",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/builds/:buildId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "builds",
+                                ":buildId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                },
+                                {
+                                  "key": "buildId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"status\": \"QUEUED\",\n  \"source\": {\n    \"storageSource\": {\n      \"bucket\": \"<string>\",\n      \"object\": \"<string>\",\n      \"generation\": \"<string>\"\n    },\n    \"repoSource\": {\n      \"projectId\": \"<string>\",\n      \"repoName\": \"<string>\",\n      \"branchName\": \"<string>\",\n      \"tagName\": \"<string>\",\n      \"commitSha\": \"<string>\"\n    }\n  },\n  \"steps\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dir\": \"<string>\",\n      \"id\": \"<string>\",\n      \"waitFor\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"entrypoint\": \"<string>\",\n      \"env\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timeout\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dir\": \"<string>\",\n      \"id\": \"<string>\",\n      \"waitFor\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"entrypoint\": \"<string>\",\n      \"env\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timeout\": \"<string>\"\n    }\n  ],\n  \"results\": {\n    \"images\": [\n      {\n        \"name\": \"<string>\",\n        \"digest\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"digest\": \"<string>\"\n      }\n    ],\n    \"buildStepImages\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"createTime\": \"<dateTime>\",\n  \"startTime\": \"<dateTime>\",\n  \"finishTime\": \"<dateTime>\",\n  \"timeout\": \"<string>\",\n  \"images\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"logUrl\": \"<string>\",\n  \"substitutions\": {\n    \"Lorem_41\": \"<string>\",\n    \"fugiat0\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T01:46:25.000Z",
+                          "updatedAt": "2026-07-28T01:46:25.000Z",
+                          "uid": "35240-a76751e2-89ae-4806-86c0-411028c9636d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:46:25.000Z",
+                      "updatedAt": "2026-07-28T01:46:25.000Z",
+                      "uid": "35240-40f808d8-266f-4b97-96b5-386a93a1d306"
+                    }
+                  ],
+                  "id": "4300c734-e4c5-478d-868f-55f2fc91164e",
+                  "createdAt": "2026-07-28T01:46:24.000Z",
+                  "updatedAt": "2026-07-28T01:46:24.000Z",
+                  "uid": "35240-4300c734-e4c5-478d-868f-55f2fc91164e"
+                },
+                {
+                  "name": "{buildId}:cancel",
+                  "item": [
+                    {
+                      "name": "Google Cloud Build Cancel a build",
+                      "id": "4e3389b1-3117-463c-b762-f4867179354c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/builds/{{buildId}}:cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "builds",
+                            "{{buildId}}:cancel"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9b36531b-b792-4ca0-84f0-3f8284ea7f2b",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Cancels a build in progress."
+                      },
+                      "response": [
+                        {
+                          "id": "e7048cd1-f5db-43b4-8609-2e7d6aacfc48",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/builds/{{buildId}}:cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "builds",
+                                "{{buildId}}:cancel"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"status\": \"QUEUED\",\n  \"source\": {\n    \"storageSource\": {\n      \"bucket\": \"<string>\",\n      \"object\": \"<string>\",\n      \"generation\": \"<string>\"\n    },\n    \"repoSource\": {\n      \"projectId\": \"<string>\",\n      \"repoName\": \"<string>\",\n      \"branchName\": \"<string>\",\n      \"tagName\": \"<string>\",\n      \"commitSha\": \"<string>\"\n    }\n  },\n  \"steps\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dir\": \"<string>\",\n      \"id\": \"<string>\",\n      \"waitFor\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"entrypoint\": \"<string>\",\n      \"env\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timeout\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dir\": \"<string>\",\n      \"id\": \"<string>\",\n      \"waitFor\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"entrypoint\": \"<string>\",\n      \"env\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timeout\": \"<string>\"\n    }\n  ],\n  \"results\": {\n    \"images\": [\n      {\n        \"name\": \"<string>\",\n        \"digest\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"digest\": \"<string>\"\n      }\n    ],\n    \"buildStepImages\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"createTime\": \"<dateTime>\",\n  \"startTime\": \"<dateTime>\",\n  \"finishTime\": \"<dateTime>\",\n  \"timeout\": \"<string>\",\n  \"images\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"logUrl\": \"<string>\",\n  \"substitutions\": {\n    \"Lorem_41\": \"<string>\",\n    \"fugiat0\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T01:46:25.000Z",
+                          "updatedAt": "2026-07-28T01:46:25.000Z",
+                          "uid": "35240-e7048cd1-f5db-43b4-8609-2e7d6aacfc48"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:46:25.000Z",
+                      "updatedAt": "2026-07-28T01:46:25.000Z",
+                      "uid": "35240-4e3389b1-3117-463c-b762-f4867179354c"
+                    }
+                  ],
+                  "id": "b8d3776b-60dd-4d7e-8502-94aa1ff4ada1",
+                  "createdAt": "2026-07-28T01:46:24.000Z",
+                  "updatedAt": "2026-07-28T01:46:24.000Z",
+                  "uid": "35240-b8d3776b-60dd-4d7e-8502-94aa1ff4ada1"
+                },
+                {
+                  "name": "Google Cloud Build List builds",
+                  "id": "a600f582-ec41-415c-ac73-944e59e592db",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:projectId/builds?pageSize=<integer>&pageToken=<string>&filter=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":projectId",
+                        "builds"
+                      ],
+                      "query": [
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "pageToken",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The raw filter text to constrain the results",
+                          "key": "filter",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "2efb93bc-dc10-458e-a6f9-5e35045395de",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Lists previously requested builds for a project."
+                  },
+                  "response": [
+                    {
+                      "id": "6197fd64-3837-4fdf-b0e0-8b4f4c6f9833",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/builds?pageSize=<integer>&pageToken=<string>&filter=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "builds"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "pageToken",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The raw filter text to constrain the results",
+                              "key": "filter",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"builds\": [\n    {\n      \"id\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"status\": \"CANCELLED\",\n      \"source\": {\n        \"storageSource\": {\n          \"bucket\": \"<string>\",\n          \"object\": \"<string>\",\n          \"generation\": \"<string>\"\n        },\n        \"repoSource\": {\n          \"projectId\": \"<string>\",\n          \"repoName\": \"<string>\",\n          \"branchName\": \"<string>\",\n          \"tagName\": \"<string>\",\n          \"commitSha\": \"<string>\"\n        }\n      },\n      \"steps\": [\n        {\n          \"name\": \"<string>\",\n          \"args\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dir\": \"<string>\",\n          \"id\": \"<string>\",\n          \"waitFor\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"entrypoint\": \"<string>\",\n          \"env\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"timeout\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"args\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dir\": \"<string>\",\n          \"id\": \"<string>\",\n          \"waitFor\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"entrypoint\": \"<string>\",\n          \"env\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"timeout\": \"<string>\"\n        }\n      ],\n      \"results\": {\n        \"images\": [\n          {\n            \"name\": \"<string>\",\n            \"digest\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"digest\": \"<string>\"\n          }\n        ],\n        \"buildStepImages\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"createTime\": \"<dateTime>\",\n      \"startTime\": \"<dateTime>\",\n      \"finishTime\": \"<dateTime>\",\n      \"timeout\": \"<string>\",\n      \"images\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"logUrl\": \"<string>\",\n      \"substitutions\": {\n        \"Excepteur_dc\": \"<string>\"\n      },\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"projectId\": \"<string>\",\n      \"status\": \"SUCCESS\",\n      \"source\": {\n        \"storageSource\": {\n          \"bucket\": \"<string>\",\n          \"object\": \"<string>\",\n          \"generation\": \"<string>\"\n        },\n        \"repoSource\": {\n          \"projectId\": \"<string>\",\n          \"repoName\": \"<string>\",\n          \"branchName\": \"<string>\",\n          \"tagName\": \"<string>\",\n          \"commitSha\": \"<string>\"\n        }\n      },\n      \"steps\": [\n        {\n          \"name\": \"<string>\",\n          \"args\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dir\": \"<string>\",\n          \"id\": \"<string>\",\n          \"waitFor\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"entrypoint\": \"<string>\",\n          \"env\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"timeout\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"args\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"dir\": \"<string>\",\n          \"id\": \"<string>\",\n          \"waitFor\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"entrypoint\": \"<string>\",\n          \"env\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"timeout\": \"<string>\"\n        }\n      ],\n      \"results\": {\n        \"images\": [\n          {\n            \"name\": \"<string>\",\n            \"digest\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"digest\": \"<string>\"\n          }\n        ],\n        \"buildStepImages\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"createTime\": \"<dateTime>\",\n      \"startTime\": \"<dateTime>\",\n      \"finishTime\": \"<dateTime>\",\n      \"timeout\": \"<string>\",\n      \"images\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"logUrl\": \"<string>\",\n      \"substitutions\": {\n        \"mollit0b\": \"<string>\",\n        \"consequat1\": \"<string>\"\n      },\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:46:25.000Z",
+                      "updatedAt": "2026-07-28T01:46:25.000Z",
+                      "uid": "35240-6197fd64-3837-4fdf-b0e0-8b4f4c6f9833"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:46:25.000Z",
+                  "updatedAt": "2026-07-28T01:46:25.000Z",
+                  "uid": "35240-a600f582-ec41-415c-ac73-944e59e592db"
+                },
+                {
+                  "name": "Google Cloud Build Create a build",
+                  "id": "73f105c9-756f-4973-9905-da882c873bce",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"status\": \"QUEUED\",\n  \"source\": {\n    \"storageSource\": {\n      \"bucket\": \"<string>\",\n      \"object\": \"<string>\",\n      \"generation\": \"<string>\"\n    },\n    \"repoSource\": {\n      \"projectId\": \"<string>\",\n      \"repoName\": \"<string>\",\n      \"branchName\": \"<string>\",\n      \"tagName\": \"<string>\",\n      \"commitSha\": \"<string>\"\n    }\n  },\n  \"steps\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dir\": \"<string>\",\n      \"id\": \"<string>\",\n      \"waitFor\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"entrypoint\": \"<string>\",\n      \"env\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timeout\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dir\": \"<string>\",\n      \"id\": \"<string>\",\n      \"waitFor\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"entrypoint\": \"<string>\",\n      \"env\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timeout\": \"<string>\"\n    }\n  ],\n  \"results\": {\n    \"images\": [\n      {\n        \"name\": \"<string>\",\n        \"digest\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"digest\": \"<string>\"\n      }\n    ],\n    \"buildStepImages\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"createTime\": \"<dateTime>\",\n  \"startTime\": \"<dateTime>\",\n  \"finishTime\": \"<dateTime>\",\n  \"timeout\": \"<string>\",\n  \"images\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"logUrl\": \"<string>\",\n  \"substitutions\": {\n    \"Lorem_41\": \"<string>\",\n    \"fugiat0\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:projectId/builds",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":projectId",
+                        "builds"
+                      ],
+                      "variable": [
+                        {
+                          "id": "213ad6d8-ae3d-4bfc-9faf-445186b5f4e6",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Starts a build with the specified configuration."
+                  },
+                  "response": [
+                    {
+                      "id": "643ef9fc-894f-4d4a-b13f-73063baaeda2",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"status\": \"QUEUED\",\n  \"source\": {\n    \"storageSource\": {\n      \"bucket\": \"<string>\",\n      \"object\": \"<string>\",\n      \"generation\": \"<string>\"\n    },\n    \"repoSource\": {\n      \"projectId\": \"<string>\",\n      \"repoName\": \"<string>\",\n      \"branchName\": \"<string>\",\n      \"tagName\": \"<string>\",\n      \"commitSha\": \"<string>\"\n    }\n  },\n  \"steps\": [\n    {\n      \"name\": \"<string>\",\n      \"args\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dir\": \"<string>\",\n      \"id\": \"<string>\",\n      \"waitFor\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"entrypoint\": \"<string>\",\n      \"env\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timeout\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"args\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dir\": \"<string>\",\n      \"id\": \"<string>\",\n      \"waitFor\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"entrypoint\": \"<string>\",\n      \"env\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"timeout\": \"<string>\"\n    }\n  ],\n  \"results\": {\n    \"images\": [\n      {\n        \"name\": \"<string>\",\n        \"digest\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"digest\": \"<string>\"\n      }\n    ],\n    \"buildStepImages\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"createTime\": \"<dateTime>\",\n  \"startTime\": \"<dateTime>\",\n  \"finishTime\": \"<dateTime>\",\n  \"timeout\": \"<string>\",\n  \"images\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"logUrl\": \"<string>\",\n  \"substitutions\": {\n    \"Lorem_41\": \"<string>\",\n    \"fugiat0\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/builds",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "builds"
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"name\": \"<string>\",\n  \"done\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T01:46:25.000Z",
+                      "updatedAt": "2026-07-28T01:46:25.000Z",
+                      "uid": "35240-643ef9fc-894f-4d4a-b13f-73063baaeda2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:46:25.000Z",
+                  "updatedAt": "2026-07-28T01:46:25.000Z",
+                  "uid": "35240-73f105c9-756f-4973-9905-da882c873bce"
+                }
+              ],
+              "id": "c82974e9-1359-4450-afba-c4b5bba2d61c",
+              "createdAt": "2026-07-28T01:46:24.000Z",
+              "updatedAt": "2026-07-28T01:46:24.000Z",
+              "uid": "35240-c82974e9-1359-4450-afba-c4b5bba2d61c"
+            }
+          ],
+          "id": "c8ae7014-29ef-464d-b2cc-2b7be8bad982",
+          "createdAt": "2026-07-28T01:46:24.000Z",
+          "updatedAt": "2026-07-28T01:46:24.000Z",
+          "uid": "35240-c8ae7014-29ef-464d-b2cc-2b7be8bad982"
+        }
+      ],
+      "id": "28ef3dfe-9cae-457c-84c1-f4bbd6319f62",
+      "createdAt": "2026-07-28T01:46:24.000Z",
+      "updatedAt": "2026-07-28T01:46:24.000Z",
+      "uid": "35240-28ef3dfe-9cae-457c-84c1-f4bbd6319f62"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cloudbuild.googleapis.com/v1"
+    },
+    {
+      "key": "buildId",
+      "value": "<string>"
+    }
+  ]
+}
