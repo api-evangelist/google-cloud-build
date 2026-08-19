@@ -1,0 +1,643 @@
+{
+  "item": [
+    {
+      "id": "f0acd99e-dfa8-4c04-940f-2e851760253e",
+      "name": "Triggers",
+      "description": {
+        "content": "Operations for managing build triggers",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bfa3dc15-a01c-41f4-ac07-894f9aeab7c2",
+          "name": "Google Cloud Build List build triggers",
+          "request": {
+            "name": "Google Cloud Build List build triggers",
+            "description": {
+              "content": "Lists existing build triggers for a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "triggers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8cf61ee9-6f8c-42e6-a8ff-9d9621c46d68",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "triggers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"triggers\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"disabled\": false,\n      \"triggerTemplate\": {\n        \"projectId\": \"string\",\n        \"repoName\": \"string\",\n        \"branchName\": \"string\",\n        \"tagName\": \"string\"\n      },\n      \"github\": {\n        \"owner\": \"string\",\n        \"name\": \"string\",\n        \"pullRequest\": {\n          \"branch\": \"string\"\n        },\n        \"push\": {\n          \"branch\": \"string\",\n          \"tag\": \"string\"\n        }\n      },\n      \"build\": {\n        \"id\": \"string\",\n        \"projectId\": \"string\",\n        \"status\": \"WORKING\",\n        \"source\": {\n          \"storageSource\": {\n            \"bucket\": \"string\",\n            \"object\": \"string\",\n            \"generation\": \"string\"\n          },\n          \"repoSource\": {\n            \"projectId\": \"string\",\n            \"repoName\": \"string\",\n            \"branchName\": \"string\",\n            \"tagName\": \"string\",\n            \"commitSha\": \"string\"\n          }\n        },\n        \"steps\": [\n          {\n            \"name\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"dir\": \"string\",\n            \"id\": \"string\",\n            \"waitFor\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"entrypoint\": \"string\",\n            \"env\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"timeout\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"dir\": \"string\",\n            \"id\": \"string\",\n            \"waitFor\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"entrypoint\": \"string\",\n            \"env\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"timeout\": \"string\"\n          }\n        ],\n        \"results\": {\n          \"images\": [\n            {\n              \"name\": \"string\",\n              \"digest\": \"string\"\n            },\n            {\n              \"name\": \"string\",\n              \"digest\": \"string\"\n            }\n          ],\n          \"buildStepImages\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"createTime\": \"2022-02-24T08:31:44.332Z\",\n        \"startTime\": \"1978-05-17T03:52:14.521Z\",\n        \"finishTime\": \"2001-05-15T07:15:42.334Z\",\n        \"timeout\": \"string\",\n        \"images\": [\n          \"string\",\n          \"string\"\n        ],\n        \"logUrl\": \"string\",\n        \"substitutions\": {\n          \"key_0\": \"string\"\n        },\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"filename\": \"string\",\n      \"substitutions\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"createTime\": \"1993-11-22T04:20:08.816Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"disabled\": false,\n      \"triggerTemplate\": {\n        \"projectId\": \"string\",\n        \"repoName\": \"string\",\n        \"branchName\": \"string\",\n        \"tagName\": \"string\"\n      },\n      \"github\": {\n        \"owner\": \"string\",\n        \"name\": \"string\",\n        \"pullRequest\": {\n          \"branch\": \"string\"\n        },\n        \"push\": {\n          \"branch\": \"string\",\n          \"tag\": \"string\"\n        }\n      },\n      \"build\": {\n        \"id\": \"string\",\n        \"projectId\": \"string\",\n        \"status\": \"EXPIRED\",\n        \"source\": {\n          \"storageSource\": {\n            \"bucket\": \"string\",\n            \"object\": \"string\",\n            \"generation\": \"string\"\n          },\n          \"repoSource\": {\n            \"projectId\": \"string\",\n            \"repoName\": \"string\",\n            \"branchName\": \"string\",\n            \"tagName\": \"string\",\n            \"commitSha\": \"string\"\n          }\n        },\n        \"steps\": [\n          {\n            \"name\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"dir\": \"string\",\n            \"id\": \"string\",\n            \"waitFor\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"entrypoint\": \"string\",\n            \"env\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"timeout\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"args\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"dir\": \"string\",\n            \"id\": \"string\",\n            \"waitFor\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"entrypoint\": \"string\",\n            \"env\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"timeout\": \"string\"\n          }\n        ],\n        \"results\": {\n          \"images\": [\n            {\n              \"name\": \"string\",\n              \"digest\": \"string\"\n            },\n            {\n              \"name\": \"string\",\n              \"digest\": \"string\"\n            }\n          ],\n          \"buildStepImages\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        \"createTime\": \"1969-01-24T19:14:06.018Z\",\n        \"startTime\": \"2022-10-26T14:10:41.002Z\",\n        \"finishTime\": \"1951-08-21T13:08:52.057Z\",\n        \"timeout\": \"string\",\n        \"images\": [\n          \"string\",\n          \"string\"\n        ],\n        \"logUrl\": \"string\",\n        \"substitutions\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"filename\": \"string\",\n      \"substitutions\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"createTime\": \"1978-08-10T02:18:40.434Z\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdcca9f5-9339-47b0-9f59-68e8ccb710cd",
+          "name": "Google Cloud Build Create a build trigger",
+          "request": {
+            "name": "Google Cloud Build Create a build trigger",
+            "description": {
+              "content": "Creates a new build trigger.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "triggers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"disabled\": \"<boolean>\",\n  \"triggerTemplate\": {\n    \"projectId\": \"<string>\",\n    \"repoName\": \"<string>\",\n    \"branchName\": \"<string>\",\n    \"tagName\": \"<string>\"\n  },\n  \"github\": {\n    \"owner\": \"<string>\",\n    \"name\": \"<string>\",\n    \"pullRequest\": {\n      \"branch\": \"<string>\"\n    },\n    \"push\": {\n      \"branch\": \"<string>\",\n      \"tag\": \"<string>\"\n    }\n  },\n  \"build\": {\n    \"id\": \"<string>\",\n    \"projectId\": \"<string>\",\n    \"status\": \"<string>\",\n    \"source\": {\n      \"storageSource\": {\n        \"bucket\": \"<string>\",\n        \"object\": \"<string>\",\n        \"generation\": \"<string>\"\n      },\n      \"repoSource\": {\n        \"projectId\": \"<string>\",\n        \"repoName\": \"<string>\",\n        \"branchName\": \"<string>\",\n        \"tagName\": \"<string>\",\n        \"commitSha\": \"<string>\"\n      }\n    },\n    \"steps\": [\n      {\n        \"name\": \"<string>\",\n        \"args\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dir\": \"<string>\",\n        \"id\": \"<string>\",\n        \"waitFor\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"entrypoint\": \"<string>\",\n        \"env\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"timeout\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"args\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dir\": \"<string>\",\n        \"id\": \"<string>\",\n        \"waitFor\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"entrypoint\": \"<string>\",\n        \"env\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"timeout\": \"<string>\"\n      }\n    ],\n    \"results\": {\n      \"images\": [\n        {\n          \"name\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ],\n      \"buildStepImages\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"createTime\": \"<dateTime>\",\n    \"startTime\": \"<dateTime>\",\n    \"finishTime\": \"<dateTime>\",\n    \"timeout\": \"<string>\",\n    \"images\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"logUrl\": \"<string>\",\n    \"substitutions\": {\n      \"key_0\": \"<string>\"\n    },\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"filename\": \"<string>\",\n  \"substitutions\": {\n    \"key_0\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1d1e222a-caef-49a1-beb2-02df887eb499",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "triggers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"disabled\": \"<boolean>\",\n  \"triggerTemplate\": {\n    \"projectId\": \"<string>\",\n    \"repoName\": \"<string>\",\n    \"branchName\": \"<string>\",\n    \"tagName\": \"<string>\"\n  },\n  \"github\": {\n    \"owner\": \"<string>\",\n    \"name\": \"<string>\",\n    \"pullRequest\": {\n      \"branch\": \"<string>\"\n    },\n    \"push\": {\n      \"branch\": \"<string>\",\n      \"tag\": \"<string>\"\n    }\n  },\n  \"build\": {\n    \"id\": \"string\",\n    \"projectId\": \"string\",\n    \"status\": \"EXPIRED\",\n    \"source\": {\n      \"storageSource\": {\n        \"bucket\": \"string\",\n        \"object\": \"string\",\n        \"generation\": \"string\"\n      },\n      \"repoSource\": {\n        \"projectId\": \"string\",\n        \"repoName\": \"string\",\n        \"branchName\": \"string\",\n        \"tagName\": \"string\",\n        \"commitSha\": \"string\"\n      }\n    },\n    \"steps\": [\n      {\n        \"name\": \"string\",\n        \"args\": [\n          \"string\",\n          \"string\"\n        ],\n        \"dir\": \"string\",\n        \"id\": \"string\",\n        \"waitFor\": [\n          \"string\",\n          \"string\"\n        ],\n        \"entrypoint\": \"string\",\n        \"env\": [\n          \"string\",\n          \"string\"\n        ],\n        \"timeout\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"args\": [\n          \"string\",\n          \"string\"\n        ],\n        \"dir\": \"string\",\n        \"id\": \"string\",\n        \"waitFor\": [\n          \"string\",\n          \"string\"\n        ],\n        \"entrypoint\": \"string\",\n        \"env\": [\n          \"string\",\n          \"string\"\n        ],\n        \"timeout\": \"string\"\n      }\n    ],\n    \"results\": {\n      \"images\": [\n        {\n          \"name\": \"string\",\n          \"digest\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"digest\": \"string\"\n        }\n      ],\n      \"buildStepImages\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"createTime\": \"1976-10-18T01:52:17.861Z\",\n    \"startTime\": \"1985-12-12T13:59:44.342Z\",\n    \"finishTime\": \"2007-10-21T07:21:53.491Z\",\n    \"timeout\": \"string\",\n    \"images\": [\n      \"string\",\n      \"string\"\n    ],\n    \"logUrl\": \"string\",\n    \"substitutions\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"filename\": \"<string>\",\n  \"substitutions\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"disabled\": false,\n  \"triggerTemplate\": {\n    \"projectId\": \"string\",\n    \"repoName\": \"string\",\n    \"branchName\": \"string\",\n    \"tagName\": \"string\"\n  },\n  \"github\": {\n    \"owner\": \"string\",\n    \"name\": \"string\",\n    \"pullRequest\": {\n      \"branch\": \"string\"\n    },\n    \"push\": {\n      \"branch\": \"string\",\n      \"tag\": \"string\"\n    }\n  },\n  \"build\": {\n    \"id\": \"string\",\n    \"projectId\": \"string\",\n    \"status\": \"PENDING\",\n    \"source\": {\n      \"storageSource\": {\n        \"bucket\": \"string\",\n        \"object\": \"string\",\n        \"generation\": \"string\"\n      },\n      \"repoSource\": {\n        \"projectId\": \"string\",\n        \"repoName\": \"string\",\n        \"branchName\": \"string\",\n        \"tagName\": \"string\",\n        \"commitSha\": \"string\"\n      }\n    },\n    \"steps\": [\n      {\n        \"name\": \"string\",\n        \"args\": [\n          \"string\",\n          \"string\"\n        ],\n        \"dir\": \"string\",\n        \"id\": \"string\",\n        \"waitFor\": [\n          \"string\",\n          \"string\"\n        ],\n        \"entrypoint\": \"string\",\n        \"env\": [\n          \"string\",\n          \"string\"\n        ],\n        \"timeout\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"args\": [\n          \"string\",\n          \"string\"\n        ],\n        \"dir\": \"string\",\n        \"id\": \"string\",\n        \"waitFor\": [\n          \"string\",\n          \"string\"\n        ],\n        \"entrypoint\": \"string\",\n        \"env\": [\n          \"string\",\n          \"string\"\n        ],\n        \"timeout\": \"string\"\n      }\n    ],\n    \"results\": {\n      \"images\": [\n        {\n          \"name\": \"string\",\n          \"digest\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"digest\": \"string\"\n        }\n      ],\n      \"buildStepImages\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"createTime\": \"2018-04-23T15:53:36.261Z\",\n    \"startTime\": \"1963-01-06T01:18:41.439Z\",\n    \"finishTime\": \"1976-02-13T18:12:05.696Z\",\n    \"timeout\": \"string\",\n    \"images\": [\n      \"string\",\n      \"string\"\n    ],\n    \"logUrl\": \"string\",\n    \"substitutions\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"filename\": \"string\",\n  \"substitutions\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"createTime\": \"1981-02-04T21:48:26.842Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "044a8d14-e679-443c-99e6-f1bf1c8f4d15",
+          "name": "Google Cloud Build Get a build trigger",
+          "request": {
+            "name": "Google Cloud Build Get a build trigger",
+            "description": {
+              "content": "Returns information about a build trigger.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "triggers",
+                ":triggerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "triggerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7429222-9cdd-422a-ae87-205eaa595503",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "triggers",
+                    ":triggerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "triggerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"disabled\": false,\n  \"triggerTemplate\": {\n    \"projectId\": \"string\",\n    \"repoName\": \"string\",\n    \"branchName\": \"string\",\n    \"tagName\": \"string\"\n  },\n  \"github\": {\n    \"owner\": \"string\",\n    \"name\": \"string\",\n    \"pullRequest\": {\n      \"branch\": \"string\"\n    },\n    \"push\": {\n      \"branch\": \"string\",\n      \"tag\": \"string\"\n    }\n  },\n  \"build\": {\n    \"id\": \"string\",\n    \"projectId\": \"string\",\n    \"status\": \"PENDING\",\n    \"source\": {\n      \"storageSource\": {\n        \"bucket\": \"string\",\n        \"object\": \"string\",\n        \"generation\": \"string\"\n      },\n      \"repoSource\": {\n        \"projectId\": \"string\",\n        \"repoName\": \"string\",\n        \"branchName\": \"string\",\n        \"tagName\": \"string\",\n        \"commitSha\": \"string\"\n      }\n    },\n    \"steps\": [\n      {\n        \"name\": \"string\",\n        \"args\": [\n          \"string\",\n          \"string\"\n        ],\n        \"dir\": \"string\",\n        \"id\": \"string\",\n        \"waitFor\": [\n          \"string\",\n          \"string\"\n        ],\n        \"entrypoint\": \"string\",\n        \"env\": [\n          \"string\",\n          \"string\"\n        ],\n        \"timeout\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"args\": [\n          \"string\",\n          \"string\"\n        ],\n        \"dir\": \"string\",\n        \"id\": \"string\",\n        \"waitFor\": [\n          \"string\",\n          \"string\"\n        ],\n        \"entrypoint\": \"string\",\n        \"env\": [\n          \"string\",\n          \"string\"\n        ],\n        \"timeout\": \"string\"\n      }\n    ],\n    \"results\": {\n      \"images\": [\n        {\n          \"name\": \"string\",\n          \"digest\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"digest\": \"string\"\n        }\n      ],\n      \"buildStepImages\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"createTime\": \"2018-04-23T15:53:36.261Z\",\n    \"startTime\": \"1963-01-06T01:18:41.439Z\",\n    \"finishTime\": \"1976-02-13T18:12:05.696Z\",\n    \"timeout\": \"string\",\n    \"images\": [\n      \"string\",\n      \"string\"\n    ],\n    \"logUrl\": \"string\",\n    \"substitutions\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"filename\": \"string\",\n  \"substitutions\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"createTime\": \"1981-02-04T21:48:26.842Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5df7a30c-a001-4080-97f4-8cf917da8546",
+          "name": "Google Cloud Build Update a build trigger",
+          "request": {
+            "name": "Google Cloud Build Update a build trigger",
+            "description": {
+              "content": "Updates a build trigger by its project ID and trigger ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "triggers",
+                ":triggerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "triggerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"disabled\": \"<boolean>\",\n  \"triggerTemplate\": {\n    \"projectId\": \"<string>\",\n    \"repoName\": \"<string>\",\n    \"branchName\": \"<string>\",\n    \"tagName\": \"<string>\"\n  },\n  \"github\": {\n    \"owner\": \"<string>\",\n    \"name\": \"<string>\",\n    \"pullRequest\": {\n      \"branch\": \"<string>\"\n    },\n    \"push\": {\n      \"branch\": \"<string>\",\n      \"tag\": \"<string>\"\n    }\n  },\n  \"build\": {\n    \"id\": \"<string>\",\n    \"projectId\": \"<string>\",\n    \"status\": \"<string>\",\n    \"source\": {\n      \"storageSource\": {\n        \"bucket\": \"<string>\",\n        \"object\": \"<string>\",\n        \"generation\": \"<string>\"\n      },\n      \"repoSource\": {\n        \"projectId\": \"<string>\",\n        \"repoName\": \"<string>\",\n        \"branchName\": \"<string>\",\n        \"tagName\": \"<string>\",\n        \"commitSha\": \"<string>\"\n      }\n    },\n    \"steps\": [\n      {\n        \"name\": \"<string>\",\n        \"args\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dir\": \"<string>\",\n        \"id\": \"<string>\",\n        \"waitFor\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"entrypoint\": \"<string>\",\n        \"env\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"timeout\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"args\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dir\": \"<string>\",\n        \"id\": \"<string>\",\n        \"waitFor\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"entrypoint\": \"<string>\",\n        \"env\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"timeout\": \"<string>\"\n      }\n    ],\n    \"results\": {\n      \"images\": [\n        {\n          \"name\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ],\n      \"buildStepImages\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"createTime\": \"<dateTime>\",\n    \"startTime\": \"<dateTime>\",\n    \"finishTime\": \"<dateTime>\",\n    \"timeout\": \"<string>\",\n    \"images\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"logUrl\": \"<string>\",\n    \"substitutions\": {\n      \"key_0\": \"<string>\"\n    },\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"filename\": \"<string>\",\n  \"substitutions\": {\n    \"key_0\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fcaee8af-049b-4769-89b8-577ffc8a6e64",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "triggers",
+                    ":triggerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "triggerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"disabled\": \"<boolean>\",\n  \"triggerTemplate\": {\n    \"projectId\": \"<string>\",\n    \"repoName\": \"<string>\",\n    \"branchName\": \"<string>\",\n    \"tagName\": \"<string>\"\n  },\n  \"github\": {\n    \"owner\": \"<string>\",\n    \"name\": \"<string>\",\n    \"pullRequest\": {\n      \"branch\": \"<string>\"\n    },\n    \"push\": {\n      \"branch\": \"<string>\",\n      \"tag\": \"<string>\"\n    }\n  },\n  \"build\": {\n    \"id\": \"string\",\n    \"projectId\": \"string\",\n    \"status\": \"EXPIRED\",\n    \"source\": {\n      \"storageSource\": {\n        \"bucket\": \"string\",\n        \"object\": \"string\",\n        \"generation\": \"string\"\n      },\n      \"repoSource\": {\n        \"projectId\": \"string\",\n        \"repoName\": \"string\",\n        \"branchName\": \"string\",\n        \"tagName\": \"string\",\n        \"commitSha\": \"string\"\n      }\n    },\n    \"steps\": [\n      {\n        \"name\": \"string\",\n        \"args\": [\n          \"string\",\n          \"string\"\n        ],\n        \"dir\": \"string\",\n        \"id\": \"string\",\n        \"waitFor\": [\n          \"string\",\n          \"string\"\n        ],\n        \"entrypoint\": \"string\",\n        \"env\": [\n          \"string\",\n          \"string\"\n        ],\n        \"timeout\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"args\": [\n          \"string\",\n          \"string\"\n        ],\n        \"dir\": \"string\",\n        \"id\": \"string\",\n        \"waitFor\": [\n          \"string\",\n          \"string\"\n        ],\n        \"entrypoint\": \"string\",\n        \"env\": [\n          \"string\",\n          \"string\"\n        ],\n        \"timeout\": \"string\"\n      }\n    ],\n    \"results\": {\n      \"images\": [\n        {\n          \"name\": \"string\",\n          \"digest\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"digest\": \"string\"\n        }\n      ],\n      \"buildStepImages\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"createTime\": \"1976-10-18T01:52:17.861Z\",\n    \"startTime\": \"1985-12-12T13:59:44.342Z\",\n    \"finishTime\": \"2007-10-21T07:21:53.491Z\",\n    \"timeout\": \"string\",\n    \"images\": [\n      \"string\",\n      \"string\"\n    ],\n    \"logUrl\": \"string\",\n    \"substitutions\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"filename\": \"<string>\",\n  \"substitutions\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"disabled\": false,\n  \"triggerTemplate\": {\n    \"projectId\": \"string\",\n    \"repoName\": \"string\",\n    \"branchName\": \"string\",\n    \"tagName\": \"string\"\n  },\n  \"github\": {\n    \"owner\": \"string\",\n    \"name\": \"string\",\n    \"pullRequest\": {\n      \"branch\": \"string\"\n    },\n    \"push\": {\n      \"branch\": \"string\",\n      \"tag\": \"string\"\n    }\n  },\n  \"build\": {\n    \"id\": \"string\",\n    \"projectId\": \"string\",\n    \"status\": \"PENDING\",\n    \"source\": {\n      \"storageSource\": {\n        \"bucket\": \"string\",\n        \"object\": \"string\",\n        \"generation\": \"string\"\n      },\n      \"repoSource\": {\n        \"projectId\": \"string\",\n        \"repoName\": \"string\",\n        \"branchName\": \"string\",\n        \"tagName\": \"string\",\n        \"commitSha\": \"string\"\n      }\n    },\n    \"steps\": [\n      {\n        \"name\": \"string\",\n        \"args\": [\n          \"string\",\n          \"string\"\n        ],\n        \"dir\": \"string\",\n        \"id\": \"string\",\n        \"waitFor\": [\n          \"string\",\n          \"string\"\n        ],\n        \"entrypoint\": \"string\",\n        \"env\": [\n          \"string\",\n          \"string\"\n        ],\n        \"timeout\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"args\": [\n          \"string\",\n          \"string\"\n        ],\n        \"dir\": \"string\",\n        \"id\": \"string\",\n        \"waitFor\": [\n          \"string\",\n          \"string\"\n        ],\n        \"entrypoint\": \"string\",\n        \"env\": [\n          \"string\",\n          \"string\"\n        ],\n        \"timeout\": \"string\"\n      }\n    ],\n    \"results\": {\n      \"images\": [\n        {\n          \"name\": \"string\",\n          \"digest\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"digest\": \"string\"\n        }\n      ],\n      \"buildStepImages\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"createTime\": \"2018-04-23T15:53:36.261Z\",\n    \"startTime\": \"1963-01-06T01:18:41.439Z\",\n    \"finishTime\": \"1976-02-13T18:12:05.696Z\",\n    \"timeout\": \"string\",\n    \"images\": [\n      \"string\",\n      \"string\"\n    ],\n    \"logUrl\": \"string\",\n    \"substitutions\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"filename\": \"string\",\n  \"substitutions\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"createTime\": \"1981-02-04T21:48:26.842Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71a8529f-7952-4ccd-9a4c-bb688cc5ca1b",
+          "name": "Google Cloud Build Delete a build trigger",
+          "request": {
+            "name": "Google Cloud Build Delete a build trigger",
+            "description": {
+              "content": "Deletes a build trigger by its project ID and trigger ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "triggers",
+                ":triggerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "triggerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a824af70-fb4a-4681-8266-48a8feba1d08",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "triggers",
+                    ":triggerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "triggerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cloudbuild.googleapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fc03bdca-9c07-4d68-94cf-a22538251eec",
+    "name": "Google Cloud Build Builds Triggers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Cloud Build API provides programmatic access to create, manage, and monitor builds on Google Cloud infrastructure. It supports build triggers, worker pools, source repository connections, and build configuration management for CI/CD workflows.\n\nContact Support:\n Name: Google Cloud Support",
+      "type": "text/plain"
+    }
+  }
+}

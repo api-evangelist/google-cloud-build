@@ -1,0 +1,153 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Cloud Build Builds Triggers API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Triggers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud Build List build triggers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudbuild.googleapis.com/v1/projects/:projectId/triggers",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists existing build triggers for a project."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Build Create a build trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cloudbuild.googleapis.com/v1/projects/:projectId/triggers",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new build trigger."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Build Get a build trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudbuild.googleapis.com/v1/projects/:projectId/triggers/:triggerId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "triggerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns information about a build trigger."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Build Update a build trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://cloudbuild.googleapis.com/v1/projects/:projectId/triggers/:triggerId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "triggerId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a build trigger by its project ID and trigger ID."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Build Delete a build trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://cloudbuild.googleapis.com/v1/projects/:projectId/triggers/:triggerId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "triggerId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a build trigger by its project ID and trigger ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
