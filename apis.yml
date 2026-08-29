@@ -5,6 +5,18 @@ description: >-
   build, test, and deploy software quickly across all languages and frameworks. It executes builds on Google Cloud
   infrastructure, supports building from source code repositories, creating container images, and deploying to various
   Google Cloud targets including GKE, Cloud Run, and App Engine.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
