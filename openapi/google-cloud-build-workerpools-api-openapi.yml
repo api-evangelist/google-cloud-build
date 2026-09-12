@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Cloud Build Builds WorkerPools API
+  title: Google Cloud Build Builds Worker Pools API
   description: The Cloud Build API provides programmatic access to create, manage, and monitor builds on Google Cloud infrastructure. It supports build triggers, worker pools, source repository connections, and build configuration management for CI/CD workflows.
   version: v1
   contact:
@@ -64,9 +64,10 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   parameters:
-    pageToken:
-      name: pageToken
-      in: query
+    location:
+      name: location
+      in: path
+      required: true
       schema:
         type: string
     projectId:
@@ -75,34 +76,17 @@ components:
       required: true
       schema:
         type: string
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
     pageSize:
       name: pageSize
       in: query
       schema:
         type: integer
-    location:
-      name: location
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
-    Operation:
-      type: object
-      properties:
-        name:
-          type: string
-        done:
-          type: boolean
-    ListWorkerPoolsResponse:
-      type: object
-      properties:
-        workerPools:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkerPool'
-        nextPageToken:
-          type: string
     WorkerPool:
       type: object
       properties:
@@ -140,6 +124,22 @@ components:
         updateTime:
           type: string
           format: date-time
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+    ListWorkerPoolsResponse:
+      type: object
+      properties:
+        workerPools:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkerPool'
+        nextPageToken:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2

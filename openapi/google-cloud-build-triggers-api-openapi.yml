@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Cloud Build Builds Triggers API
   description: The Cloud Build API provides programmatic access to create, manage, and monitor builds on Google Cloud infrastructure. It supports build triggers, worker pools, source repository connections, and build configuration management for CI/CD workflows.
@@ -107,6 +107,29 @@ paths:
         '200':
           description: Successful response
 components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    triggerId:
+      name: triggerId
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     Build:
       type: object
@@ -203,6 +226,15 @@ components:
           type: array
           items:
             type: string
+    ListTriggersResponse:
+      type: object
+      properties:
+        triggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/BuildTrigger'
+        nextPageToken:
+          type: string
     BuildStep:
       type: object
       properties:
@@ -234,15 +266,6 @@ components:
             type: string
           description: Environment variables for the step
         timeout:
-          type: string
-    ListTriggersResponse:
-      type: object
-      properties:
-        triggers:
-          type: array
-          items:
-            $ref: '#/components/schemas/BuildTrigger'
-        nextPageToken:
           type: string
     BuildTrigger:
       type: object
@@ -301,29 +324,6 @@ components:
         createTime:
           type: string
           format: date-time
-  parameters:
-    pageToken:
-      name: pageToken
-      in: query
-      schema:
-        type: string
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
-    triggerId:
-      name: triggerId
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     oauth2:
       type: oauth2

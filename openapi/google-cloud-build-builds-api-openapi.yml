@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Cloud Build Builds API
   description: The Cloud Build API provides programmatic access to create, manage, and monitor builds on Google Cloud infrastructure. It supports build triggers, worker pools, source repository connections, and build configuration management for CI/CD workflows.
@@ -96,6 +96,15 @@ paths:
                 $ref: '#/components/schemas/Build'
 components:
   schemas:
+    ListBuildsResponse:
+      type: object
+      properties:
+        builds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Build'
+        nextPageToken:
+          type: string
     Build:
       type: object
       properties:
@@ -230,19 +239,11 @@ components:
           type: string
         done:
           type: boolean
-    ListBuildsResponse:
-      type: object
-      properties:
-        builds:
-          type: array
-          items:
-            $ref: '#/components/schemas/Build'
-        nextPageToken:
-          type: string
   parameters:
-    pageToken:
-      name: pageToken
-      in: query
+    buildId:
+      name: buildId
+      in: path
+      required: true
       schema:
         type: string
     projectId:
@@ -251,17 +252,16 @@ components:
       required: true
       schema:
         type: string
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
     pageSize:
       name: pageSize
       in: query
       schema:
         type: integer
-    buildId:
-      name: buildId
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     oauth2:
       type: oauth2
