@@ -42,6 +42,7 @@ tags:
   - Container Build
   - Continuous Delivery
   - Continuous Integration
+  - Developer Tools
   - DevOps
 apis:
 - aid: google-cloud-build:google-cloud-build-builds-api
