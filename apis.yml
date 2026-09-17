@@ -77,18 +77,16 @@ apis:
     url: https://cloud.google.com/build/docs/api/reference/rest#authentication
   - type: JSONSchema
     url: json-schema/google-cloud-build-build-schema.json
-- aid: google-cloud-build:google-cloud-build-workerpools-api
-  name: Google Cloud Build WorkerPools API
+- aid: google-cloud-build:google-cloud-build-worker-pools-api
+  name: Google Cloud Build Worker Pools API
   description: Operations for managing worker pools
   humanURL: https://cloud.google.com/build/docs
   baseURL: https://cloudbuild.googleapis.com
   tags:
   - Worker Pools
-  tags_raw:
-  - WorkerPools
   properties:
   - type: OpenAPI
-    url: openapi/google-cloud-build-workerpools-api-openapi.yml
+    url: openapi/google-cloud-build-worker-pools-api-openapi.yml
   - type: Documentation
     url: https://cloud.google.com/build/docs/api/reference/rest
   - type: Authentication
