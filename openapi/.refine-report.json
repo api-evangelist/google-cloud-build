@@ -1,23 +1,27 @@
 {
   "provider": "google-cloud-build",
   "sources": [
-    "google-cloud-build-builds-api-openapi.yml",
-    "google-cloud-build-triggers-api-openapi.yml",
-    "google-cloud-build-workerpools-api-openapi.yml"
+    "_original/cloud-build-api-openapi.yml"
   ],
   "outputs": [
     "google-cloud-build-builds-api-openapi.yml",
     "google-cloud-build-triggers-api-openapi.yml",
     "google-cloud-build-workerpools-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
-    "google-cloud-build-builds-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-cloud-build-triggers-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-cloud-build-workerpools-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "cloud-build-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: google-cloud-build-worker-pools-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 3 total)"
   ],
-  "skipped": []
+  "skipped": [
+    "google-cloud-build-builds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-cloud-build-triggers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-cloud-build-worker-pools-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google Cloud Build Builds Triggers API
+  title: Google Cloud Build Triggers API
   description: The Cloud Build API provides programmatic access to create, manage, and monitor builds on Google Cloud infrastructure. It supports build triggers, worker pools, source repository connections, and build configuration management for CI/CD workflows.
   version: v1
   contact:
@@ -108,8 +108,13 @@ paths:
           description: Successful response
 components:
   parameters:
-    projectId:
-      name: projectId
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    triggerId:
+      name: triggerId
       in: path
       required: true
       schema:
@@ -119,13 +124,8 @@ components:
       in: query
       schema:
         type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
-    triggerId:
-      name: triggerId
+    projectId:
+      name: projectId
       in: path
       required: true
       schema:
@@ -226,47 +226,6 @@ components:
           type: array
           items:
             type: string
-    ListTriggersResponse:
-      type: object
-      properties:
-        triggers:
-          type: array
-          items:
-            $ref: '#/components/schemas/BuildTrigger'
-        nextPageToken:
-          type: string
-    BuildStep:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the container image for this build step
-        args:
-          type: array
-          items:
-            type: string
-          description: Command-line arguments for the step's container
-        dir:
-          type: string
-          description: Working directory to use when running the step's container
-        id:
-          type: string
-          description: Unique identifier for the build step
-        waitFor:
-          type: array
-          items:
-            type: string
-          description: The IDs of steps that must complete before this step starts
-        entrypoint:
-          type: string
-          description: Entrypoint to use when running the step's container
-        env:
-          type: array
-          items:
-            type: string
-          description: Environment variables for the step
-        timeout:
-          type: string
     BuildTrigger:
       type: object
       properties:
@@ -324,6 +283,47 @@ components:
         createTime:
           type: string
           format: date-time
+    ListTriggersResponse:
+      type: object
+      properties:
+        triggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/BuildTrigger'
+        nextPageToken:
+          type: string
+    BuildStep:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the container image for this build step
+        args:
+          type: array
+          items:
+            type: string
+          description: Command-line arguments for the step's container
+        dir:
+          type: string
+          description: Working directory to use when running the step's container
+        id:
+          type: string
+          description: Unique identifier for the build step
+        waitFor:
+          type: array
+          items:
+            type: string
+          description: The IDs of steps that must complete before this step starts
+        entrypoint:
+          type: string
+          description: Entrypoint to use when running the step's container
+        env:
+          type: array
+          items:
+            type: string
+          description: Environment variables for the step
+        timeout:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2
