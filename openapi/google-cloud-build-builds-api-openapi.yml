@@ -96,20 +96,9 @@ paths:
                 $ref: '#/components/schemas/Build'
 components:
   parameters:
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
     pageToken:
       name: pageToken
       in: query
-      schema:
-        type: string
-    buildId:
-      name: buildId
-      in: path
-      required: true
       schema:
         type: string
     projectId:
@@ -118,7 +107,59 @@ components:
       required: true
       schema:
         type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    buildId:
+      name: buildId
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
+    BuildStep:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the container image for this build step
+        args:
+          type: array
+          items:
+            type: string
+          description: Command-line arguments for the step's container
+        dir:
+          type: string
+          description: Working directory to use when running the step's container
+        id:
+          type: string
+          description: Unique identifier for the build step
+        waitFor:
+          type: array
+          items:
+            type: string
+          description: The IDs of steps that must complete before this step starts
+        entrypoint:
+          type: string
+          description: Entrypoint to use when running the step's container
+        env:
+          type: array
+          items:
+            type: string
+          description: Environment variables for the step
+        timeout:
+          type: string
+    ListBuildsResponse:
+      type: object
+      properties:
+        builds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Build'
+        nextPageToken:
+          type: string
     Build:
       type: object
       properties:
@@ -221,47 +262,6 @@ components:
           type: string
         done:
           type: boolean
-    ListBuildsResponse:
-      type: object
-      properties:
-        builds:
-          type: array
-          items:
-            $ref: '#/components/schemas/Build'
-        nextPageToken:
-          type: string
-    BuildStep:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the container image for this build step
-        args:
-          type: array
-          items:
-            type: string
-          description: Command-line arguments for the step's container
-        dir:
-          type: string
-          description: Working directory to use when running the step's container
-        id:
-          type: string
-          description: Unique identifier for the build step
-        waitFor:
-          type: array
-          items:
-            type: string
-          description: The IDs of steps that must complete before this step starts
-        entrypoint:
-          type: string
-          description: Entrypoint to use when running the step's container
-        env:
-          type: array
-          items:
-            type: string
-          description: Environment variables for the step
-        timeout:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2

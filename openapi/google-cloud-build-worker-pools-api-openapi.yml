@@ -64,20 +64,15 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   parameters:
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
-    pageToken:
-      name: pageToken
-      in: query
-      schema:
-        type: string
     location:
       name: location
       in: path
       required: true
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
       schema:
         type: string
     projectId:
@@ -86,7 +81,21 @@ components:
       required: true
       schema:
         type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
   schemas:
+    ListWorkerPoolsResponse:
+      type: object
+      properties:
+        workerPools:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkerPool'
+        nextPageToken:
+          type: string
     WorkerPool:
       type: object
       properties:
@@ -131,15 +140,6 @@ components:
           type: string
         done:
           type: boolean
-    ListWorkerPoolsResponse:
-      type: object
-      properties:
-        workerPools:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkerPool'
-        nextPageToken:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2

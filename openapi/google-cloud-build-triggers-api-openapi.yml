@@ -108,17 +108,6 @@ paths:
           description: Successful response
 components:
   parameters:
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
-    triggerId:
-      name: triggerId
-      in: path
-      required: true
-      schema:
-        type: string
     pageToken:
       name: pageToken
       in: query
@@ -130,7 +119,116 @@ components:
       required: true
       schema:
         type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    triggerId:
+      name: triggerId
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
+    BuildTrigger:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        disabled:
+          type: boolean
+        triggerTemplate:
+          type: object
+          properties:
+            projectId:
+              type: string
+            repoName:
+              type: string
+            branchName:
+              type: string
+            tagName:
+              type: string
+        github:
+          type: object
+          properties:
+            owner:
+              type: string
+            name:
+              type: string
+            pullRequest:
+              type: object
+              properties:
+                branch:
+                  type: string
+            push:
+              type: object
+              properties:
+                branch:
+                  type: string
+                tag:
+                  type: string
+        build:
+          $ref: '#/components/schemas/Build'
+        filename:
+          type: string
+          description: Path to the build configuration file
+        substitutions:
+          type: object
+          additionalProperties:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
+        createTime:
+          type: string
+          format: date-time
+    BuildStep:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the container image for this build step
+        args:
+          type: array
+          items:
+            type: string
+          description: Command-line arguments for the step's container
+        dir:
+          type: string
+          description: Working directory to use when running the step's container
+        id:
+          type: string
+          description: Unique identifier for the build step
+        waitFor:
+          type: array
+          items:
+            type: string
+          description: The IDs of steps that must complete before this step starts
+        entrypoint:
+          type: string
+          description: Entrypoint to use when running the step's container
+        env:
+          type: array
+          items:
+            type: string
+          description: Environment variables for the step
+        timeout:
+          type: string
+    ListTriggersResponse:
+      type: object
+      properties:
+        triggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/BuildTrigger'
+        nextPageToken:
+          type: string
     Build:
       type: object
       properties:
@@ -226,104 +324,6 @@ components:
           type: array
           items:
             type: string
-    BuildTrigger:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        disabled:
-          type: boolean
-        triggerTemplate:
-          type: object
-          properties:
-            projectId:
-              type: string
-            repoName:
-              type: string
-            branchName:
-              type: string
-            tagName:
-              type: string
-        github:
-          type: object
-          properties:
-            owner:
-              type: string
-            name:
-              type: string
-            pullRequest:
-              type: object
-              properties:
-                branch:
-                  type: string
-            push:
-              type: object
-              properties:
-                branch:
-                  type: string
-                tag:
-                  type: string
-        build:
-          $ref: '#/components/schemas/Build'
-        filename:
-          type: string
-          description: Path to the build configuration file
-        substitutions:
-          type: object
-          additionalProperties:
-            type: string
-        tags:
-          type: array
-          items:
-            type: string
-        createTime:
-          type: string
-          format: date-time
-    ListTriggersResponse:
-      type: object
-      properties:
-        triggers:
-          type: array
-          items:
-            $ref: '#/components/schemas/BuildTrigger'
-        nextPageToken:
-          type: string
-    BuildStep:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the container image for this build step
-        args:
-          type: array
-          items:
-            type: string
-          description: Command-line arguments for the step's container
-        dir:
-          type: string
-          description: Working directory to use when running the step's container
-        id:
-          type: string
-          description: Unique identifier for the build step
-        waitFor:
-          type: array
-          items:
-            type: string
-          description: The IDs of steps that must complete before this step starts
-        entrypoint:
-          type: string
-          description: Entrypoint to use when running the step's container
-        env:
-          type: array
-          items:
-            type: string
-          description: Environment variables for the step
-        timeout:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2
