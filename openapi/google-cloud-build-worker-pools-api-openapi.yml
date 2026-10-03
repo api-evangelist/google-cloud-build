@@ -70,23 +70,30 @@ components:
       required: true
       schema:
         type: string
-    pageToken:
-      name: pageToken
+    pageSize:
+      name: pageSize
       in: query
       schema:
-        type: string
+        type: integer
     projectId:
       name: projectId
       in: path
       required: true
       schema:
         type: string
-    pageSize:
-      name: pageSize
+    pageToken:
+      name: pageToken
       in: query
       schema:
-        type: integer
+        type: string
   schemas:
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
     ListWorkerPoolsResponse:
       type: object
       properties:
@@ -133,13 +140,6 @@ components:
         updateTime:
           type: string
           format: date-time
-    Operation:
-      type: object
-      properties:
-        name:
-          type: string
-        done:
-          type: boolean
   securitySchemes:
     oauth2:
       type: oauth2

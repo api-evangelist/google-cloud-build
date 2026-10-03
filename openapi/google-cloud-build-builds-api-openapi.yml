@@ -96,13 +96,8 @@ paths:
                 $ref: '#/components/schemas/Build'
 components:
   parameters:
-    pageToken:
-      name: pageToken
-      in: query
-      schema:
-        type: string
-    projectId:
-      name: projectId
+    buildId:
+      name: buildId
       in: path
       required: true
       schema:
@@ -112,10 +107,15 @@ components:
       in: query
       schema:
         type: integer
-    buildId:
-      name: buildId
+    projectId:
+      name: projectId
       in: path
       required: true
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
       schema:
         type: string
   schemas:
