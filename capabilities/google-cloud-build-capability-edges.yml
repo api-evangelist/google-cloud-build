@@ -1,0 +1,35 @@
+slug: google-cloud-build
+provider: Google Cloud Build
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Builds
+  spec_file: google-cloud-build-builds-api-openapi.yml
+  capability_id: BC-4210.10
+  capability_id_l1: BC-4210
+  capability_name: Continuous Integration Management
+  confidence: 0.88
+  evidence: '"Create a build", "List builds", "Cancel a build"; schemas BuildStep, Build; "continuous
+    integration and continuous delivery (CI/CD) platform"'
+  reason: Operations create and monitor CI builds producing artefacts/container images — squarely Continuous
+    Integration Management (build pipelines, artefact production).
+- tag: Triggers
+  spec_file: google-cloud-build-triggers-api-openapi.yml
+  capability_id: BC-4210.10
+  capability_id_l1: BC-4210
+  capability_name: Continuous Integration Management
+  confidence: 0.85
+  evidence: '"List build triggers", "Create a build trigger"; schema BuildTrigger; "It supports build
+    triggers, worker pools, source repository connections"'
+  reason: Build triggers automate pipeline execution on source repository events — pipeline policy and
+    build automation within Continuous Integration Management.
