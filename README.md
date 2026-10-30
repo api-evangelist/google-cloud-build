@@ -1,4 +1,4 @@
-# Google Cloud Build (google-cloud-build)
+# Google Cloud Build
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,69 +66,155 @@
 
 Google Cloud Build is a fully managed continuous integration and continuous delivery (CI/CD) platform that lets you build, test, and deploy software quickly across all languages and frameworks. It executes builds on Google Cloud infrastructure, supports building from source code repositories, creating container images, and deploying to various Google Cloud targets including GKE, Cloud Run, and App Engine.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/google-cloud-build/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/google-cloud-build/refs/heads/main/apis.yml)
+**Areas:** Build Automation · CI/CD · Container Build · Continuous Delivery · Continuous Integration · Developer Tools · DevOps
 
-## Scope
+## Google Cloud Build on APIs.io
 
-- **Type:** Index
+Everything profiled for Google Cloud Build is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/google-cloud-build/](https://apis.io/providers/google-cloud-build/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Build Automation
-- CI/CD
-- Container Build
-- Continuous Delivery
-- Continuous Integration
-- DevOps
+- [Google Cloud Build Builds API](https://apis.io/apis/google-cloud-build/google-cloud-build-builds-api/) — Operations for creating and managing builds
+- [Google Cloud Build Triggers API](https://apis.io/apis/google-cloud-build/google-cloud-build-triggers-api/) — Operations for managing build triggers
+- [Google Cloud Build Worker Pools API](https://apis.io/apis/google-cloud-build/google-cloud-build-worker-pools-api/) — Operations for managing worker pools
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-13
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Cloud Build API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Cloud Build API provides programmatic access to create, manage, and monitor builds on Google Cloud. Developers can use the API to trigger builds from source code, manage build triggers that automatically start builds when source code changes, view build logs and results, manage worker pools for custom build environments, and configure build connections to source repositories.
+- [Google Cloud Build Agentic Access](https://apis.io/agentic-access/google-cloud-build/google-cloud-build-agentic-access/)
 
-- **Human URL:** [https://cloud.google.com/build/docs](https://cloud.google.com/build/docs)
-- **Base URL:** `https://cloudbuild.googleapis.com`
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- Builds
-- Source Repositories
-- Triggers
-- Worker Pools
+- [Google Cloud Build Build](https://apis.io/schemas/google-cloud-build/google-cloud-build-build/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://cloud.google.com/build/docs/api/reference/rest)
-- [OpenAPI](openapi/cloud-build-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/cloud-build-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cloud-build-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://cloud.google.com/build/docs/api/reference/rest#authentication)
-- [JSON Schema](json-schema/google-cloud-build-build-schema.json) — [JSON Schema](https://json-schema.org/specification)
+Linked-data contexts for the provider's vocabulary.
 
-## Common Properties
+- [Google Cloud Build Context](https://apis.io/jsonld/google-cloud-build/google-cloud-build-context/)
 
-- [GitHub Organization](https://github.com/GoogleCloudPlatform)
-- [Portal](https://cloud.google.com/build)
-- [Getting Started](https://cloud.google.com/build/docs/quickstart-build)
+#### Collections (7)
+
+Postman and Open Collection request collections.
+
+- [Google Cloud Build API](https://apis.io/collections/google-cloud-build/open-cloud-build-api/)
+- [Google Cloud Build Builds API](https://apis.io/collections/google-cloud-build/open-google-cloud-build-builds-api/)
+- [Google Cloud Build Builds Triggers API](https://apis.io/collections/google-cloud-build/open-google-cloud-build-triggers-api/)
+- [Google Cloud Build Builds WorkerPools API](https://apis.io/collections/google-cloud-build/open-google-cloud-build-workerpools-api/)
+- [Google Cloud Build Builds API](https://apis.io/collections/google-cloud-build/postman-google-cloud-build-builds-api/)
+- [Google Cloud Build Builds Triggers API](https://apis.io/collections/google-cloud-build/postman-google-cloud-build-triggers-api/)
+- [Google Cloud Build Builds WorkerPools API](https://apis.io/collections/google-cloud-build/postman-google-cloud-build-workerpools-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Google Cloud Build — jsonschema rules](https://apis.io/rules/google-cloud-build/google-cloud-build-jsonschema-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Google Cloud Build Authentication](https://apis.io/security/google-cloud-build/google-cloud-build-authentication/)
+- [Google Cloud Build Domain Security](https://apis.io/security/google-cloud-build/google-cloud-build-domain-security/)
+- [Google Cloud Build Vulnerability Disclosure](https://apis.io/security/google-cloud-build/google-cloud-build-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Google Cloud Build Scopes](https://apis.io/scopes/google-cloud-build/google-cloud-build-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Google Cloud Build Plans Pricing](https://apis.io/plans/google-cloud-build/google-cloud-build-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Google Cloud Build Rate Limits](https://apis.io/rate-limits/google-cloud-build/google-cloud-build-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Google Cloud Build Finops](https://apis.io/finops/google-cloud-build/google-cloud-build-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.google.com/)
 - [Documentation](https://cloud.google.com/build/docs)
-- [Authentication](https://cloud.google.com/build/docs/api/reference/rest#authentication)
+- [Getting started](https://cloud.google.com/build/docs/quickstart-build)
 - [Pricing](https://cloud.google.com/build/pricing)
-- [Terms of Service](https://cloud.google.com/terms)
-- [Privacy Policy](https://policies.google.com/privacy)
-- [Console](https://console.cloud.google.com/cloud-build)
-- [C L I](https://cloud.google.com/sdk/gcloud/reference/builds)
-- [Status Page](https://status.cloud.google.com)
 - [Support](https://cloud.google.com/build/docs/support)
-- [JSON-LD](json-ld/google-cloud-build-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Integrations](https://cloud.google.com/marketplace)
+- [Terms of service](https://cloud.google.com/terms)
+- [Privacy policy](https://policies.google.com/privacy)
+- [GitHub](https://github.com/GoogleCloudPlatform)
+- [Status](https://status.cloud.google.com)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 48.8** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 56.1 |
+| Contract governance | 9.8 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 56.0 |
+| Access clarity | 39.5 |
+
+**Agent readiness 26.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 40.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/google-cloud-build/](https://apis.io/providers/google-cloud-build/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Google Cloud Build: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/google-cloud-build/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
